@@ -1,4 +1,4 @@
-import { handleChangeInput } from "@/lib/utils.js";
+import { handleChangeInput, timeElapsed } from "@/lib/utils.js";
 import { useState } from "react";
 import Fuse from "fuse.js";
 
@@ -20,6 +20,7 @@ export default function Dashboard() {
     application: "cf",
     profile: "stage",
     label: "latest",
+    active: true,
   });
 
   /**
@@ -98,8 +99,8 @@ export default function Dashboard() {
     <>
       <SearchBar
         handleSubmit={handleSubmit}
-        handleInputChange={handleChangeInput(setSearchState)}
         state={searchState}
+        setSearchState={setSearchState}
       />
 
       <FilterSearch
@@ -134,7 +135,9 @@ export default function Dashboard() {
                     className="p-3 border border-slate-300  text-sm"
                     key={`cell_${columnName}_${index}`}
                   >
-                    {rowData[columnName]}
+                    {columnName === "updatedAt"
+                      ? timeElapsed(rowData[columnName])
+                      : rowData[columnName]}
                   </td>
                 ))}
                 <td className="p-3 border border-slate-300  text-sm">

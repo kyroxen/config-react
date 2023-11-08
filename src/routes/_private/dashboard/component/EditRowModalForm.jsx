@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { handleChangeInput } from "@/lib/utils.js";
+import { handleChangeCheckbox, handleChangeInput } from "@/lib/utils.js";
 import Button from "@/components/Button.jsx";
 import { updateConfig } from "@/lib/services/DashboardService.js";
 
@@ -38,6 +38,19 @@ export default function EditRowModalForm({ rowData, closeModal, search }) {
           value={formState.value}
           onChange={handleChangeInput(setFormState)}
         />
+        <div className="flex flex-row justify-center space-x-3 items-center">
+          <label htmlFor="isActive" className="">
+            Active{" "}
+          </label>
+          <input
+            id="isActive"
+            type="checkbox"
+            className="flex"
+            name="active"
+            checked={formState.active}
+            onChange={handleChangeCheckbox(setFormState)}
+          />
+        </div>
         <Button className="w-full" type="submit">
           Save Changes
         </Button>

@@ -1,6 +1,7 @@
 import Button from "@/components/Button.jsx";
+import { handleChangeCheckbox, handleChangeInput } from "@/lib/utils.js";
 
-export default function SearchBar({ handleSubmit, handleInputChange, state }) {
+export default function SearchBar({ handleSubmit, state, setSearchState }) {
   return (
     <>
       <div className=" mx-auto w-5/6 justify-center mt-5">
@@ -17,7 +18,7 @@ export default function SearchBar({ handleSubmit, handleInputChange, state }) {
               name="application"
               placeholder="application"
               value={state.application}
-              onChange={handleInputChange}
+              onChange={handleChangeInput(setSearchState)}
             />
             <input
               className="input"
@@ -25,7 +26,7 @@ export default function SearchBar({ handleSubmit, handleInputChange, state }) {
               name="profile"
               placeholder="profile"
               value={state.profile}
-              onChange={handleInputChange}
+              onChange={handleChangeInput(setSearchState)}
             />
             <input
               className="input"
@@ -33,8 +34,21 @@ export default function SearchBar({ handleSubmit, handleInputChange, state }) {
               name="label"
               placeholder="label"
               value={state.label}
-              onChange={handleInputChange}
+              onChange={handleChangeInput(setSearchState)}
             />
+
+            <div className="flex flex-row justify-center space-x-3 items-center bg-white px-2 border-[1px] rounded-md">
+              <label htmlFor="isActive">Active </label>
+              <input
+                id="isActive"
+                type="checkbox"
+                className="flex"
+                name="active"
+                checked={state.active}
+                onChange={handleChangeCheckbox(setSearchState)}
+              />
+            </div>
+
             <Button type="submit">Fetch Configs</Button>
           </form>
         </div>

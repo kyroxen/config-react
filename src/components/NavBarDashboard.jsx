@@ -11,10 +11,10 @@ export default function NavBarDashboard() {
   };
 
   return (
-    <header className="mx-auto w-full max-w-7xl px-2 border-b">
-      <div className=" flex h-14 items-center justify-between px-4 sm:px-6 xl:px-8">
-        <nav>
-          <Link to="/dashboard">Dashboard</Link>
+    <header className="mx-auto bg-green-200/50 w-5/6 px-2 border-b">
+      <div className=" flex h-14 items-center justify-between px-4 sm:px-6">
+        <nav className="text-2xl">
+          <Link to="/dashboard">Configuration Manager</Link>
         </nav>
         {user ? (
           <Button onClick={handleLogout}>Logout</Button>
@@ -27,16 +27,3 @@ export default function NavBarDashboard() {
     </header>
   );
 }
-
-const ProfileButton = () => {
-  return (
-    <div>
-      <div>
-        <div>
-          <img src="/logos/shadcn.jpg" />
-          <div>CN</div>
-        </div>
-      </div>
-    </div>
-  );
-};

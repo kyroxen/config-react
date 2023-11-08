@@ -3,7 +3,7 @@ import { handleChangeInput } from "@/lib/utils.js";
 import Button from "@/components/Button.jsx";
 import { updateConfig } from "@/lib/services/DashboardService.js";
 
-export default function ModalForm({ rowData, closeModal, search }) {
+export default function EditRowModalForm({ rowData, closeModal, search }) {
   const [formState, setFormState] = useState({
     ...rowData,
   });

@@ -37,3 +37,23 @@ export function handleChangeInput(setState) {
     }));
   };
 }
+
+export function handleChangeInputSimple(setState) {
+  /**
+   * @param {Event} event - The input change event.
+   */
+  return (event) => {
+    const { value } = event.target;
+    setState(value);
+  };
+}
+
+export function handleChangeCheckbox(setState) {
+  return (event) => {
+    const { name, checked } = event.target;
+    setState((prevProps) => ({
+      ...prevProps,
+      [name]: checked,
+    }));
+  };
+}

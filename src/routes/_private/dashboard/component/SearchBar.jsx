@@ -3,13 +3,13 @@ import Button from "@/components/Button.jsx";
 export default function SearchBar({ handleSubmit, handleInputChange, state }) {
   return (
     <>
-      <div className="flex justify-center mt-5">
-        <div className="flex rounded-lg border-2 text-card-foreground shadow-md bg-yellow-50 w-1/2 justify-around">
+      <div className=" mx-auto w-5/6 justify-center mt-5">
+        <div className="flex rounded-lg border-2 border-stone-200/30 shadow-sm bg-stone-50 justify-around">
           <form
             autoComplete="on"
             method="Post"
             onSubmit={handleSubmit}
-            className="max-lg:flex-col max-lg:space-y-2 lg:flex lg:space-x-2 p-2  "
+            className="max-lg:flex-col max-lg:space-y-2 lg:flex lg:space-x-2 p-2"
           >
             <input
               className="input"
@@ -35,7 +35,7 @@ export default function SearchBar({ handleSubmit, handleInputChange, state }) {
               value={state.label}
               onChange={handleInputChange}
             />
-            <Button type="submit">Search</Button>
+            <Button type="submit">Fetch Configs</Button>
           </form>
         </div>
       </div>

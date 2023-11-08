@@ -13,7 +13,7 @@ export default function Button({
         onClick={onClick}
         type={type}
         className={cn(
-          "px-3 py-2 bg-lime-100 text-black hover:bg-lime-200 rounded-md border-stone-600 border-2 hover:border-black",
+          "px-3 bg-lime-100 h-10 text-black hover:bg-lime-200 rounded-md border-stone-600 border-2 hover:border-black",
           className,
         )}
       >

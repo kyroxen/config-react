@@ -43,7 +43,7 @@ export default function SignUpForm() {
             onSubmit={handleSubmit}
           >
             <input
-              className="input"
+              className="input w-full"
               required
               type="email"
               placeholder="email"
@@ -52,7 +52,7 @@ export default function SignUpForm() {
               onChange={handleInputChange}
             />
             <input
-              className="input"
+              className="input w-full"
               required
               type="text"
               placeholder="username"
@@ -61,7 +61,7 @@ export default function SignUpForm() {
               onChange={handleInputChange}
             />
             <input
-              className="input"
+              className="input w-full"
               required
               type="password"
               placeholder="password"

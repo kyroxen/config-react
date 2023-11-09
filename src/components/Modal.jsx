@@ -16,7 +16,7 @@ export default function Modal({ children, header }) {
             onClick={() => setShowModal(false)}
           ></div>
 
-          {/*Modal content*/}
+          {/*SimpleModal content*/}
           <div className="bg-white p-8 rounded-md z-50 w-1/4">
             <div className="flex justify-center text-2xl mb-6">{header}</div>
             {children}

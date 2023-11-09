@@ -31,8 +31,12 @@ export default function SignInForm() {
             Sign in to your account
           </div>
           <form className="space-y-4" onSubmit={handleLogin}>
-            <input className="input" type="email" placeholder="email" />
-            <input className="input" type="password" placeholder="password" />
+            <input className="input w-full" type="email" placeholder="email" />
+            <input
+              className="input w-full"
+              type="password"
+              placeholder="password"
+            />
             <Button className="w-full" type="submit">
               Sign In
             </Button>

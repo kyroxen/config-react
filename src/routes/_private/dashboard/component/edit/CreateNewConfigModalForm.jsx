@@ -1,7 +1,8 @@
 import { useState } from "react";
-import { handleChangeCheckbox, handleChangeInput } from "@/lib/utils.js";
+import { handleChangeInput } from "@/lib/utils.js";
 import Button from "@/components/Button.jsx";
 import { updateConfig } from "@/lib/services/DashboardService.js";
+import Active from "@/components/Active.jsx";
 
 export default function CreateNewConfigModalForm({
   closeModal,
@@ -47,7 +48,7 @@ export default function CreateNewConfigModalForm({
           <label htmlFor="key">Key </label>
           <textarea
             id="key"
-            className="flex w-3/4 rounded-md border border-input bg-background px-1 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+            className="textarea"
             name="key"
             placeholder="Enter a config key e.g cities"
             value={formState.key}
@@ -58,26 +59,14 @@ export default function CreateNewConfigModalForm({
           <label htmlFor="value">Value </label>
           <textarea
             id="value"
-            className="flex w-3/4 rounded-md border border-input bg-background px-1 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+            className="textarea"
             name="value"
             placeholder="Enter a config value e.g New Delhi, Mumbai"
             value={formState.value}
             onChange={handleChangeInput(setFormState)}
           />
         </div>
-        <div className="flex flex-row justify-center space-x-3 items-center">
-          <label htmlFor="isActive" className="">
-            Active{" "}
-          </label>
-          <input
-            id="isActive"
-            type="checkbox"
-            className="flex"
-            name="active"
-            checked={formState.active}
-            onChange={handleChangeCheckbox(setFormState)}
-          />
-        </div>
+        <Active formState={formState} setFormState={setFormState} />
         <Button className="w-full" type="submit">
           Save Changes
         </Button>

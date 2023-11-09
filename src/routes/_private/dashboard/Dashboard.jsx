@@ -1,13 +1,12 @@
-import { handleChangeInput, timeElapsed } from "@/lib/utils.js";
+import { timeElapsed } from "@/lib/utils.js";
 import { useState } from "react";
 import Fuse from "fuse.js";
 
 import Button from "@/components/Button.jsx";
-import Modal from "@/routes/_private/dashboard/component/Modal.jsx";
-import SearchBar from "@/routes/_private/dashboard/component/SearchBar.jsx";
+import SimpleModal from "@/components/SimpleModal.jsx";
 import { searchAPI } from "@/lib/services/DashboardService.js";
-import EditRowModalForm from "@/routes/_private/dashboard/component/EditRowModalForm.jsx";
-import FilterSearch from "@/routes/_private/dashboard/component/FilterSearch.jsx";
+import EditRowModalForm from "@/routes/_private/dashboard/component/edit/EditRowModalForm.jsx";
+import FilterAndSearchBar from "@/routes/_private/dashboard/component/FilterAndSearchBar.jsx";
 
 export default function Dashboard() {
   const columnsToDisplay = ["key", "value", "label", "updatedAt"];
@@ -97,19 +96,15 @@ export default function Dashboard() {
 
   return (
     <>
-      <SearchBar
-        handleSubmit={handleSubmit}
-        state={searchState}
-        setSearchState={setSearchState}
-      />
-
-      <FilterSearch
+      <FilterAndSearchBar
         handleSubmitFilterConfigs={(e) => handleSubmitFilterConfigs(e)}
         search={search}
         searchState={searchState}
         searchFilter={searchFilter}
         setSearchFilter={setSearchFilter}
         setConfigs={setConfigs}
+        handleSubmit={handleSubmit}
+        setSearchState={setSearchState}
       />
 
       <div className="flex justify-center">
@@ -156,7 +151,7 @@ export default function Dashboard() {
         </table>
 
         {(configs?.length > 0 ? configs : []).map((rowData, index) => (
-          <Modal
+          <SimpleModal
             key={index}
             isOpen={rowEditModalStates[index]}
             closeModal={() => closeRowEditModal(index)}
@@ -166,7 +161,7 @@ export default function Dashboard() {
               closeModal={() => closeRowEditModal(index)}
               search={search}
             />
-          </Modal>
+          </SimpleModal>
         ))}
       </div>
     </>

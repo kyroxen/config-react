@@ -12,15 +12,21 @@ export default function Home() {
   };
 
   return (
-    <div className="w-screen h-screen bg-lime-100">
-      <div className="flex text-center items-center justify-center bg-lime-100  pt-10">
-        <p className="text-8xl">Hello!</p>
-      </div>
-      <div className="flex flex-col justify-center items-center my-auto h-1/2">
-        <div className="flex flex-row justify-center items-center gap-3 p-10 bg-yellow-100 drop-shadow rounded-2xl">
-          Please <Button onClick={gotoSignIn}>Sign in</Button> or{" "}
-          <Button onClick={gotoSignUp}>Sign up</Button>
-        </div>
+    <div className="flex w-screen h-screen bg-gradient-saturated font-mono text-2xl">
+      <div className="flex text-center m-auto flex-row justify-center items-center gap-3 px-24 py-16 bg-black text-white shadow-md border-2">
+        <Button
+          className="bg-black text-stone-100 hover:text-blue-400 hover:bg-black font-bold border-none"
+          onClick={gotoSignIn}
+        >
+          Sign in
+        </Button>{" "}
+        or{" "}
+        <Button
+          className="bg-black text-white hover:text-pink-400 hover:bg-black font-bold border-none"
+          onClick={gotoSignUp}
+        >
+          Sign up
+        </Button>
       </div>
     </div>
   );

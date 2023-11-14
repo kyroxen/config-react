@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@descope/react-sdk": "^1.0.14",
+    "@logto/react": "^2.1.2",
     "clsx": "^2.0.0",
     "fuse.js": "^7.0.0",
     "lucide-react": "^0.292.0",

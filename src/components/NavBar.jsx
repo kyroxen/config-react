@@ -1,12 +1,12 @@
 import { Link, redirect } from "react-router-dom";
 import Button from "@/components/Button.jsx";
-import { useAuth } from "@/lib/AuthContext.jsx";
+import { useLogto } from "@logto/react";
 
 export default function NavBar() {
-  const { user, logout } = useAuth();
+  const { signOut, isAuthenticated } = useLogto();
 
   const handleLogout = () => {
-    logout();
+    signOut().then((e) => console.log("Signed out!", e));
     return redirect("/sign-in");
   };
 
@@ -16,7 +16,7 @@ export default function NavBar() {
         <nav>
           <Link to="/">Home</Link>
         </nav>
-        {user ? (
+        {isAuthenticated ? (
           <Button onClick={handleLogout}>Logout</Button>
         ) : (
           <Button>

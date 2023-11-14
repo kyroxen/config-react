@@ -1,13 +1,12 @@
 import { Navigate, Outlet } from "react-router-dom";
-import { useAuth } from "@/lib/AuthContext.jsx";
+import { useLogto } from "@logto/react";
 
 export default function AuthLayout() {
-  const { user } = useAuth();
-  console.log("AuthLayout:: ", user);
+  const { isAuthenticated } = useLogto();
 
   return (
     <>
-      {user ? (
+      {isAuthenticated ? (
         <Navigate to="/dashboard" />
       ) : (
         <div className="flex h-screen ">

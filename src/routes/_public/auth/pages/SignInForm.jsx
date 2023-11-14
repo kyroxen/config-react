@@ -1,15 +1,16 @@
-import { Link } from "react-router-dom";
+import { Link, redirect } from "react-router-dom";
 import { ChevronLeftSquareIcon } from "lucide-react";
 import Button from "@/components/Button.jsx";
 import TooltipContainer from "@/components/TooltipContainer.jsx";
-import { useAuth } from "@/lib/AuthContext.jsx";
+import { useLogto } from "@logto/react";
 
 export default function SignInForm() {
-  const { login } = useAuth();
+  const { signIn } = useLogto();
   const handleLogin = (e) => {
-    // Call the login function with credentials
     e.preventDefault();
-    login("user@example.com", "password");
+    signIn("http://localhost:5173/callback").then((r) =>
+      console.log("Signed in! ", r),
+    );
   };
 
   return (

@@ -1,14 +1,13 @@
 import { Navigate, Outlet } from "react-router-dom";
-import { useAuth } from "@/lib/AuthContext.jsx";
 import NavBarDashboard from "@/components/NavBarDashboard.jsx";
+import { useLogto } from "@logto/react";
 
 export default function RootLayout() {
-  const { user } = useAuth();
-  console.log("RootLayout:: ", user);
+  const { isAuthenticated } = useLogto();
 
   return (
     <div>
-      {user ? (
+      {isAuthenticated ? (
         <>
           <NavBarDashboard />
           <Outlet />

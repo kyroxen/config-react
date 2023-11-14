@@ -1,10 +1,14 @@
 import Button from "@/components/Button.jsx";
 import { useNavigate } from "react-router-dom";
+import { useLogto } from "@logto/react";
 
 export default function Home() {
   const navigate = useNavigate();
+  const { signIn, isAuthenticated } = useLogto();
   const gotoSignIn = () => {
-    return navigate("/sign-in");
+    signIn("http://localhost:5173/callback").then((r) =>
+      console.log("Signed in! ", r),
+    );
   };
 
   const gotoSignUp = () => {

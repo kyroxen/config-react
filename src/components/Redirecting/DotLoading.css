@@ -1,0 +1,18 @@
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 20%;
+    background-color: #007bff; /* Set the dot color */
+    margin: 0 8px;
+    animation: dotAnimation 2s infinite; /* Adjust animation duration as needed */
+}
+
+@keyframes dotAnimation {
+    0%,
+    100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.5);
+    }
+}
